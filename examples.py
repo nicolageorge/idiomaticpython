@@ -362,9 +362,6 @@ for name in names:
 
 
 
-
-
-
 # IS a dictionary popitem() atomic?
 d = {'matthew': 'blue', 'rachel': 'green', 'raymond': 'red'}
 
@@ -379,9 +376,377 @@ while d:
 
 
 
+# Construct a dictionary from pairs
+names = ['raymond', 'rachel', 'matthew']
+colors = ['red', 'green', 'blue']
+
+d = dict(izip(names, colors))
+{'matthew': 'blue', 'rachel': 'green', 'raymond': 'red'}
+# the dictionary constructor accepts a list of pairs or any iterable of pairs
+# easiest way to construct the list of pairs is to izip them together
+# parts of python fit beatifully together
+# how do you take two lists and construct them seamlesly into a dictionary:
+# 4 words of python
+# it doesn't make a tuple after each iteration
+# iterates over the same tuple over and over again, without making calls to the
+# allocator
+
+
+
+
 
 
 # Linking dictionaries
+defaults = {'color':'red', 'user':'guest'}
+parser = argparse.ArgumentParser()
+parser.add_argument('-u', '--user')
+parser.add_argument('=c', '--color')
+namespace = parser.parse_args([])
+command_line_args = {k:v for k, v in 
+					 vars(namespace).items() if v}
+# one dictionary with some default value for some parameters
+# we call argparse and check for some command line arguments which are optional
+# we also want to use the os.environ dictionary, to check for the values which are 
+# os specific
+# the default way to do it
+d = defaults.copy()
+d.update(os.environ)
+d.update(command_line_args)
+# take the dictionary from the defaults
+# than do an update on the defaults from the environment variables
+# that way you got some standard defaults
+# than the environment variables which take precedence over the standard defaults
+# than the user specified variables
+
+d = ChainMap(command_line_args, os.environ, defaults)
+# python3
+# it links them all together
+
+
+
+
+
+
+# Improving clarity
+# positional arguments and indices are nice
+# keywords and names are better
+# the first way is convenient for the computer
+# the second corresponds to how humans think
+
+
+
+# clarify function calls with keyword arguments
+ts('@obama', False, 20, True)
+# check everywhere one makes an obscure call like this
+twitter_search('@obama', retweets=False, numtweets=20, popular=True)
+# replace with keyword arguments
+
+
+
+# clarify multiple return values with named tuples
+# in the past
+doctest.testmod()
+# returned
+(0, 4)
+# now it returns
+TestResults(failed=0, attempted=4)
+# to define the named tuple
+TestResults = namedtuple('TestResults', ['failed', 'attempted'])
+# all your output messages and error messages will be more readable
+# the person that benefits most of this is you
+
+
+
+
+
+# unpacking sequences
+p = 'Raymond', 'Hettinger', 0x30, 'python@example.com'
+
+# every other programming language
+fname = p[0]
+lname = p[1]
+age = p[2]
+email = p[3]
+
+# a better way and faster
+fname, lname, age, email = p
+
+
+
+# updating multiple state variables
+# simultainous state updates
+def fibonacci(n):
+	x = 0
+	y = 1
+	for i in range(n):
+		print x
+		t = y
+		y = x + y
+		x = t
+# take a temporary variable and store the old y
+# update the y with it's new alue
+# set the new x
+
+# using the tuple packing and unpacking
+# y and x + y use the old values of x and y
+# x and y are state, should be updated all at once
+# if the state is updated on multiple lines
+# inbetween the lines, the state is mismatched
+# y is the new y and x is the old x
+# the ordering matters
+# the lines can be mixed up, it's broken down in subatomic particles
+# too low level
+# the first says
+# take y and store in t
+# take x + y and store to y
+# take t and store in x
+# the second says
+# update these variables acording to those equations
+
+# a better way
+def fibonacci(n):
+	x, y = 0, 1
+	for i in range(n):
+		print x
+		x, y = y, x+y
+# a higher level way of thinking
+# don't under-estimate the advantages of updating state variables at the same time
+# it eliminates an entire class of errors due to out of order updates
+# it allows higher level thinking and lessens the chunking of thoughts
+
+
+
+# efficency
+# don't cause data to move around unecesarily
+# it takes only a little care to avoit O(n**2) behaviour instead of linear behavior
+
+# concatenating strings
+names = ['raymond', 'rachel', 'matthew', 'roger', 
+	     'betty', 'melissa', 'judith', 'charlie']
+
+s = names[0]
+for name in names[1:]:
+	s += ', ' + name
+print s
+# quadratic
+
+# linear
+print ', '.join(names)
+
+
+
+
+# updating sequences 
+names = ['raymond', 'rachel', 'matthew', 'roger',
+	     'betty', 'melissa', 'judith', 'charlie']
+
+# wherever you see you are probably doing it wrong or using an incorrect 
+# data structure. Each of these operations are O(N) on lists
+del names[0]
+names.pop(0)
+names.insert(0, 'mark')
+
+names = deque(['raymond', 'rachel', 'matthew', 'roger',
+	           'betty', 'melissa', 'judith', 'charlie'])
+
+# O(1) on deque
+del names[0]
+names.popleft()
+names.appendleft('mark')
+
+
+
+
+
+
+
+
+# decorators and context managers
+# Helps separate business logic from administrative logic
+# Clean, beautiful tools for factoring code and improving code reuse
+# good naming is esential
+# Remember the spiderman rule: with great power comes great responsibility
+
+
+
+# using decorators to factor-out administrative logic
+def web_lookup(url, saved={}):
+	if url in saved:
+		return saved[url]
+	page = urllib.urlopen(url).read()
+	saved[url] = page
+	return page
+# business logic is opening an url and returning the web page
+# administrative logic is caching it in a dictionary, that way if I lookup the same
+# webpage, we will serve it from cache
+# mixes admin logic with business logic and is not reusable
+
+# simple fix
+@cache
+def web_lookup(url):
+	return urllib.urlopen(url).read()
+# @cache can be put in front of any pure function
+# A pure function is a function where the return value is only determined by its
+# input values, without observable side effects
+# random.random is not a pure function
+
+# the caching decorator
+def cache(func):
+	saved = {}
+	@wraps(func)
+	def newfunc(*args):
+		if args in saved:
+			return newfunc(*args)
+		result = func(*args)
+		saved[args] = result
+		return result
+	return newfunc
+
+
+
+
+
+# factor out temporary contexts
+old_context = getcontext().copy()
+getcontext().prec = 50
+print Decimal(355) / Decimal(113)
+set_context(old_context)
+# copy the context, change the decimal precision, do a calculation and 
+# set the new context. Saving the old, restoring the new
+
+# there is a better way, with local context
+with localcontext(Context(prec=50)):
+	print Decimal(355) / Decimal(113)
+# the context manager makes a copy of the context, sets in in place,
+# does the calculation and restore it
+# pretty much where you have set up logic and tear down logic in your code, 
+# you want a context manager to improve it
+
+
+
+# How to open and close files
+f = open('data.txt')
+try:
+	data = f.read()
+finally:
+	f.close()
+# the try, the finally that closes the "reader"
+
+# the new way
+with open('data.txt') as f:
+	data = f.read()
+# it factored out the setup logic and tear down logic
+
+ 
+
+# how to use locks
+# make a lock
+lock = threading.Lock()
+
+lock.acquire()
+try:
+	print 'Critical section 1'
+	print 'Critical section 2'
+finally:
+	lock.release()
+# acquire the lock, do a try finally
+# do you have to do a try finally?
+# absolutely
+# because in some situations you don't release the lock if 
+# an error happens in the block
+# What happens when you don't release a lock?
+# Puppies die?!
+
+# the new way
+with lock:
+	print 'Critical section 1'
+	print 'Critical section 2'
+# separated the administrative logic - getting the lock
+
+
+
+# factoring out temporary contexts
+try:
+	os.remove('somefile.tmp')
+except OSError:
+	pass
+# do os.remove for file and catch an OS error
+# another way is to check if the file exists before removing it
+# it is not the right way because it has a raise condition in it
+# so this above is the correct way
+
+# a better way
+with ignored(OSError):
+	os.remove('somefile.tmp')
+
+# Context manager: ignored()
+@contextmanager
+def ignored(*exceptions):
+	try:
+		yield
+	except exceptions:
+		pass
+# this gets rid of the idiom for Try Except Pass
+
+
+# factor out temporary contexts
+with open('help.txt', 'w') as f:
+	oldstdout = sys.stdout
+	sys.stdout = f
+	try:
+		help(pow)
+	finally:
+		sys.stdout = oldstdout
+# help redirects to stdoutput, if you want to store the output in a file
+# open a file, redirect stdoutput temporary assign it
+# do a try finally on the help, capturing the output
+
+# a better way
+with open('help.txt', 'w') as f:
+	with redirect_stdout(f):
+		help(pow)
+
+# context manager: redirect_stdout()
+@contextmanager
+def redirect_stdout(fileobj):
+	oldstdout = sys.stdout
+	sys.stdout = fileobj
+	try:
+		yield fileobj
+	finally:
+		sys.stdout = oldstdout
+
+# concise expressive oneliners
+
+# two confilcting rules:
+# 1. Don't put too much on one line
+# 2. Don't break atoms if thought into subatomic particles
+
+# Raymond's rule
+# one logical line of code equals to one sentence in English
+
+
+# the sum of the squares of numbers up to 10
+result = []
+for i in range(10):
+	s = i ** 2
+	result.append(s)
+print sum(result)
+
+print sum([i**2 for i in xrange(10)])
+# why is it better
+# the first one tells you what to do, step by step
+# the second one says what you want, is more declarative
+# it says, read it from left to right 
+# I want the sum of the squares of i, for i from 1 to 10
+# it's a single unit of thought 
+# the first one just tells you how to do it and not what it's doing
+
+# a better way
+print sum(i**2 for i in xrange(10))
+# taking out the brackets
+# generator expressions
+# creates a generator expression of this, instead of filling up memory
 
 
 
@@ -409,12 +774,8 @@ while d:
 
 
 
-# Construct a dictionary from pairs
-names = ['raymnd', 'rachel', 'matthew']
-colors = ['red', 'green', 'blue']
 
 
 
 
 
-##
