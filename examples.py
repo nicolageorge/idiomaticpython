@@ -182,7 +182,7 @@ for block in iter(partial(f.read, 32), ''):
 def find(seq, target):
 	found = False
 	for i, value in enumerate(seq):
-		if value -- target:
+		if value == target:
 			found = True
 			break
 	if not found:
@@ -589,7 +589,7 @@ def web_lookup(url):
 # A pure function is a function where the return value is only determined by its
 # input values, without observable side effects
 # random.random is not a pure function
-
+# https://www.sitepoint.com/functional-programming-pure-functions/
 # the caching decorator
 def cache(func):
 	saved = {}
