@@ -298,3 +298,12 @@ for k, v in d.iteritems():
 
 
 
+
+# Construct a dictionary from pairs
+names = ['raymnd', 'rachel', 'matthew']
+colors = ['red', 'green', 'blue']
+
+
+
+
+
