@@ -132,7 +132,7 @@ print sorted(colors, key=len)
 
 # call function untill a sentinel value
 # traditional way to do a repeated call over a function that has a sentinel value
-# 
+#
 # read block of strings, eventually run out of data, f.read returns a sentinel value, so when sentinel value is encountered we can break out of the loop
 # build blocks of strings, output is big list of strings
 # should connect together strings with join
@@ -153,11 +153,11 @@ while True:
 # the ITER function
 # will call read over and over again, looping over a block of 32 bits
 # when sentinel value is encountered, break out of the loop
-# 
+#
 # when something becomes iterable:
 # 	can use for loops,
 #   feed it to set
-#   feed it to sorted, min, max, heap, queue, sum 
+#   feed it to sorted, min, max, heap, queue, sum
 #   many tools consume iterators
 # 	it will work with the rest of the functions in the python toolkit
 # only issue, the function argument has to be a function of no arguments
@@ -204,7 +204,7 @@ def find(seq, target):
 	else:
 		return -1
 	return i
-# in the future, 
+# in the future,
 # emphasis on why it should be called no break
 # two ways to exit the loop:
 # 	finish it normally
@@ -293,6 +293,116 @@ for k, v in d.iteritems():
 
 
 
+# Counting with dictionaries
+colors = ['red', 'green', 'red', 'blue', 'green', 'red']
+d = {}
+for color in colors:
+	if color not in d:
+		d[color] = 0
+	d[color] += 1
+{'blue': 1, 'green': 2, 'red': 3}
+# look up the dictionary, see if the value is there
+# and if it's not, add it
+# a better way
+d = {}
+for color in colors:
+	d[color] = d.get(color, 0) + 1
+# get the color, if the color is missing, add 1 to the 0
+# a better way
+d = defaultdict(int)
+for color in colors:
+	d[color] += 1
+# factory functions
+# int can be called with no argument, producing the value 0
+# return a defaultdict which sometimes behaves different than dict
+
+
+
+
+# grouping with dictionaries
+names = ['raymond', 'rachel', 'matthew', 'roger',
+         'betty', 'melissa', 'judith', 'charlie']
+
+d = {}
+for name in names:
+	key = len(name)
+	if key not in d:
+		d[key] = []
+	d[key].append(name)
+# start with an empty dictionary
+# the key is the value one wishes to group by
+# e.g. raymond is of length 7, along with all the names
+# to group by anything else, just change the key line
+# e.g. by the first letter, thumber if e in the name
+# a better way
+d = {}
+for name in names:
+	key = len(name)
+	d.setdefault(key, []).append(name)
+#
+# we need to return the list so we can append to it
+# but also need to be inserted in
+# setdefault is just like get but has the side effect of
+# inserting the missing key
+# e.g. this goes into the dictionary see if the key is there
+# if it's not, takes the default value and inserts it
+# and returns it so you can group with it
+# a better way
+d = defaultdict(list)
+for name in names:
+	key = len(name)
+	d[key].append(name)
+# wherever you see #326
+# do this instead
+# looks better, is faster
+
+
+
+
+
+
+
+
+
+
+# IS a dictionary popitem() atomic?
+d = {'matthew': 'blue', 'rachel': 'green', 'raymond': 'red'}
+
+while d:
+	key, value = d.popitem()
+	print key, '-->', value
+# something about putting docstrings everywhere in the project
+# and as a side effect, you learn what every module does
+# removes an arbitrary item, it is atomic, you don't have to put locks on it
+# can be used between threads
+
+
+
+
+
+
+# Linking dictionaries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -307,3 +417,4 @@ colors = ['red', 'green', 'blue']
 
 
 
+##
