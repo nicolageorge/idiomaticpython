@@ -18,8 +18,8 @@ text = text.replace(',', '').split(' ')
 # going to python, it's exactly the same thing
 
 # In C
-# for i in xrange(len(text)):
-#     print text[i]
+for i in xrange(len(text)):
+    print text[i]
 
 
 # for i in xrange(1000):
@@ -31,8 +31,8 @@ text = text.replace(',', '').split(' ')
 
 
 # In Python it's faster to
-# for word in text:
-#   print word
+for word in text:
+    print word
 
 # performance
 # for i in xrange(1000):
@@ -44,8 +44,8 @@ text = text.replace(',', '').split(' ')
 
 # # looping backwards
 # In C
-# for i in xrange(len(text)-1, -1, -1):
-#     print text[i]
+for i in xrange(len(text)-1, -1, -1):
+    print text[i]
 
 # performance
 # for count in xrange(1000):
@@ -56,8 +56,8 @@ text = text.replace(',', '').split(' ')
 # len called 1000 times
 
 # In Python
-# for word in reversed(text):
-#   print word
+for word in reversed(text):
+    print word
 
 # performance
 # for count in xrange(1000):
@@ -69,8 +69,8 @@ text = text.replace(',', '').split(' ')
 # looping over a collection and indicies
 
 # in C
-# for i in xrange(len(text)):
-#    print i, '-->', text[i]
+for i in xrange(len(text)):
+    print i, '-->', text[i]
 
 # performance
 # for count in xrange(2000):
@@ -83,9 +83,8 @@ text = text.replace(',', '').split(' ')
 # # if manipulating indicies directly, it's probably wrong
 
 # In Python
-
-# for i, word in enumerate(text):
-#     print i, '-->', word
+for i, word in enumerate(text):
+    print i, '-->', word
 
 # for count in xrange(2000):
 #     with open('sample.txt', 'w') as f:
