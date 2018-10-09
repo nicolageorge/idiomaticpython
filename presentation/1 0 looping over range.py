@@ -10,19 +10,9 @@ for i in range(6):
 # they do the same thing in exactly the same way
 # range produces the same list and the for loops over the list
 
-# if range(1000000), 32mb memorie
-for i in xrange(100):
-	for i in xrange(1000000):
-		a = i**2
-
-
-for i in range(100):
-	for i in range(1000000):
-		a = i**2
-
 # better way
-# for i in xrange(6):
-# 	print i**2
+for i in xrange(6):
+	print i**2
 # produces an iterator over the range, giving the values one at a timec
 
 # python3
