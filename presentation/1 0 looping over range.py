@@ -18,11 +18,12 @@ for i in xrange(6):
 # python3
 # xrange was replaced with range
 
-# george$ /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in xrange(1000000)])'
+# /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in xrange(1000000)])'
 # 10 loops, best of 3: 263 msec per loop
-# george$ /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in range(1000000)])'
+# /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in range(1000000)])'
 # 10 loops, best of 3: 272 msec per loop
-# george$ /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in range(10000000)])'
+
+# /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in range(10000000)])'
 # 10 loops, best of 3: 2.58 sec per loop
-# george$ /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in xrange(10000000)])'
+# /usr/bin/python2.7 -m timeit '"-".join([str(n) for n in xrange(10000000)])'
 # 10 loops, best of 3: 2.46 sec per loop

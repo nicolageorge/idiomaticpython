@@ -1,5 +1,6 @@
 # Distinguishing multiple exit points in loops
 # Donald Knuth came up with some structured equivalent
+
 # need flag variable to say if something is found or not found
 # the code could be returned/exited earlier when value is found, however this type of code is 
 # usually a portion of a bigger functionality thus can't be exited early
@@ -18,6 +19,7 @@ def find(seq, target):
 # if loop not finished, keep doing the body
 # if loop not finished, keep doing the body
 # if body finished and no break was encountered - else
+
 # so se can have an else clause, it's associated with if
 # else should be called nobreak
 # if it sould have that name, everybody would use it properly

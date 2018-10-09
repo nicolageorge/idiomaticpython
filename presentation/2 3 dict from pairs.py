@@ -12,4 +12,3 @@ d = dict(izip(names, colors))
 # it doesn't make a tuple after each iteration
 # iterates over the same tuple over and over again, without making calls to the
 # allocator
-

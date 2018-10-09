@@ -15,6 +15,7 @@ text = text.replace(',', '').split(' ')
 # C, for i = 0; i < n; i++
 
 # lookup the ith word
+
 # going to python, it's exactly the same thing
 
 # In C
@@ -53,7 +54,6 @@ for i in xrange(len(text)-1, -1, -1):
 #         for i in xrange(len(text)-1, -1, -1):
 #             f.write(text[i])
 # 72005 function calls in 0.214 seconds
-# len called 1000 times
 
 # In Python
 for word in reversed(text):
