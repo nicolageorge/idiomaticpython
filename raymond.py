@@ -133,7 +133,8 @@ print sorted(colors, key=len)
 # call function untill a sentinel value
 # traditional way to do a repeated call over a function that has a sentinel value
 #
-# read block of strings, eventually run out of data, f.read returns a sentinel value, so when sentinel value is encountered we can break out of the loop
+# read block of strings, eventually run out of data, f.read returns a sentinel value, so when 
+# sentinel value is encountered we can break out of the loop
 # build blocks of strings, output is big list of strings
 # should connect together strings with join
 # should not connect together strings with +
@@ -178,7 +179,8 @@ for block in iter(partial(f.read, 32), ''):
 # Distinguishing multiple exit points in loops
 # Donald Knuth came up with some structured equivalent
 # need flag variable to say if something is found or not found
-# the code could be returned/exited earlier when value is found, however this type of code is usually a portion of a bigger functionality thus can't be exited early
+# the code could be returned/exited earlier when value is found, however this type of code is 
+# usually a portion of a bigger functionality thus can't be exited early
 def find(seq, target):
 	found = False
 	for i, value in enumerate(seq):
@@ -249,11 +251,19 @@ for k in d.keys():
 # example example example
 # https://www.bennadel.com/blog/2992-mutating-an-array-during-foreach-iteration-in-javascript.htm
 # https://stackoverflow.com/questions/10812272/modifying-a-list-while-iterating-over-it-why-not
-# The reason to why you should never modify a list while iterating over it is for example, you're iterating over a list of 20 digits, and if you hit an even number you pop it off the list and carry on till you have a list of just odd numbers.
+# The reason to why you should never modify a list while iterating over it is for example, 
+# you're iterating over a list of 20 digits, and if you hit an even number you pop it off
+# the list and carry on till you have a list of just odd numbers.
 
-# Now, say this is your sample data [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], and you start iterating over it. First iteration, and the number is 1 so you continue, the following number is 2 so you pop it off, and rinse and repeat. You now feel the application worked correctly as the resultant list is [1, 3, 5, 7, 9, 11, 13, 15, 17, 19].
+# Now, say this is your sample data [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
+# and you start iterating over it. First iteration, and the number is 1 so you continue, 
+# the following number is 2 so you pop it off, and rinse and repeat. You now feel the application
+ # worked correctly as the resultant list is [1, 3, 5, 7, 9, 11, 13, 15, 17, 19].
 
-# Now let's say your sample data is [1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 15, 15, 17, 18, 20] and you run the same piece of code as before and mutate the original list while iterating through it. Your resultant list is [1, 4, 5, 7, 10, 11, 13, 15, 15, 17, 20] which is clearly incorrect as there are still even numbers contained in the list.
+# Now let's say your sample data is [1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 15, 15, 17, 18, 20]
+# and you run the same piece of code as before and mutate the original list while iterating
+# through it. Your resultant list is [1, 4, 5, 7, 10, 11, 13, 15, 15, 17, 20] 
+# which is clearly incorrect as there are still even numbers contained in the list.
 
 # If you are planning on mutating the list while iterating through it like so
 
@@ -263,9 +273,13 @@ for k in d.keys():
 
 # for elem in lst[:]:
 #     # mutate list in place
-# The [:] syntax creates a new list that is an exact copy of the original list, so that you can happily mutate the original list without affecting what you're processing as you won't have any unintended side-effects from mutating the list you're iterating through.
+# The [:] syntax creates a new list that is an exact copy of the original list, 
+# so that you can happily mutate the original list without affecting what you're 
+# processing as you won't have any unintended side-effects from mutating the list you're iterating through.
 
-# If your list is rather sizable, instead of creating a new list and stepping through it look at using generator expressions or write your own generator for your list if you feel the need so that you do not waste memory and CPU cycles.
+# If your list is rather sizable, instead of creating a new list and stepping 
+# through it look at using generator expressions or write your own generator for 
+# your list if you feel the need so that you do not waste memory and CPU cycles.
 
 # d.keys() makes a copy of the list and stores it in a list
 # the dictionary can be mutated
