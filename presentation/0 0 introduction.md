@@ -9,7 +9,7 @@ Python has code style guidelines and idioms. Idioms in a programming language le
 
 
 
-# 	Replace traditional index manipulation with Python's core looping idioms
+# Replace traditional index manipulation with Python's core looping idioms
 
 # when you use index searching, unless exotic circumstance, should not be doing
 
