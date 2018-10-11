@@ -2,7 +2,7 @@
 
 The key characteristic of python is readability. It is of great importance that we leverage on readability, since code is read much more often than it is written.
 
-Jeff Knupp, Writing Idiomatic Python
+Jeff Knupp said in "Writing Idiomatic Python"
 > We may document our code extensively, write exhaustive unit tests,
 > and hold code reviews three times a day, but the fact remains: when 
 > someone else needs to make changes, the code is king
