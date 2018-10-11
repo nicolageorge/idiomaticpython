@@ -15,7 +15,5 @@ Python has code style guidelines and idioms. Idioms in a programming language le
 
 #### When you use index searching, unless exotic circumstance, should not be doing
 
-## Learn advanced techniques with for-else clauses and the two argument form of iter()
-
 ## Goal: Improve your craftmanship and aim for clean fast, idimatic Python code
 
