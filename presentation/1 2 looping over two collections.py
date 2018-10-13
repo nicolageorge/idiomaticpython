@@ -2,6 +2,8 @@
 names = ['raymond', 'rachel', 'matthew']
 colors = ['red', 'green', 'blue', 'yellow']
 
+# take the length of the shorter list, loop over indicies
+# until the ith element
 n = min(len(names), len(colors))
 for i in range(n):
 	print names[i], '-->', colors[i]

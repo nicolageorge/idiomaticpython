@@ -1,5 +1,5 @@
 # looping over a collection/list
-# text = ['red', 'green', 'blue', 'yellow']
+
 text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
@@ -34,6 +34,7 @@ for i in xrange(len(text)):
 # In Python it's faster to
 for word in text:
     print word
+# simpler, easyer to read, better and faster
 
 # performance
 # for i in xrange(1000):
@@ -45,6 +46,8 @@ for word in text:
 
 # # looping backwards
 # In C
+# this translates directly to python
+# grotesque and horific
 for i in xrange(len(text)-1, -1, -1):
     print text[i]
 
@@ -58,6 +61,8 @@ for i in xrange(len(text)-1, -1, -1):
 # In Python
 for word in reversed(text):
     print word
+# python's for is not like other language "for", probably should be named foreach
+# wouldn't be as pretty but everybody would use it corectly
 
 # performance
 # for count in xrange(1000):
