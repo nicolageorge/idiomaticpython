@@ -90,6 +90,7 @@ for i in xrange(len(text)):
 # In Python
 for i, word in enumerate(text):
     print i, '-->', word
+# fast, beautiful, saves you from tracking individual indicies
 
 # for count in xrange(2000):
 #     with open('sample.txt', 'w') as f:
