@@ -2,9 +2,16 @@
 
 for i in [0, 1, 2, 3, 4, 5]:
 	print i**2
+
 # python's for is not like other language "for", probably should be named foreach
 # it loops over collections, using the iterator protocol
 # not like the for in C
+
+# Generator functions are functions that behafe like an iterator. 
+# For example, they can be fed into for loops
+# Iterators are objects that contain a  countable number of values
+# an object that implements the iterator protocol, __iter__ and __next__
+
 
 # a better way
 for i in range(6):

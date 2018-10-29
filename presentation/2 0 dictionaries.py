@@ -67,6 +67,8 @@ for k, v in d.items():
 	print k, '-->', v
 # tuple unpacking, no lookups involved
 
+## TUPLE UNPACKING
+
 # a better way, because items() produces a big huge list, we have iteritems()
 for k, v in d.iteritems():
 	print k, '-->', v

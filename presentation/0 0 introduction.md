@@ -9,11 +9,8 @@ Jeff Knupp said in "Writing Idiomatic Python"
 
 
 Python has code style guidelines and idioms. Idioms in a programming language let future readers know exactly what we’re trying to do
-
-
-## Replace traditional index manipulation with Python's core looping idioms
-
-#### When you use index searching, unless exotic circumstance, should not be doing
+We will replace traditional index manipulation with Python's core looping idioms
+Or when you use index searching, unless exotic circumstance, should not be doing
 
 ## Goal: Improve your craftmanship and aim for clean fast, idimatic Python code
 

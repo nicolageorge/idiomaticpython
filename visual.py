@@ -54,7 +54,7 @@
 
 # looping over a range of numbers
 for i in [0, 1, 2, 3, 4, 5]:
-	print i**2
+    print i**2
 
 
 
@@ -104,12 +104,12 @@ for i in [0, 1, 2, 3, 4, 5]:
 
 # looping over a range of numbers
 for i in [0, 1, 2, 3, 4, 5]:
-	print i**2
+    print i**2
 
 
 # a better way
 for i in range(6):
-	print i**2
+    print i**2
 
 
 
@@ -162,19 +162,19 @@ for i in range(6):
 
 # looping over a range of numbers
 for i in [0, 1, 2, 3, 4, 5]:
-	print i**2
+    print i**2
 
 
 # a better way
 for i in range(6):
-	print i**2
+    print i**2
 # they do the same thing in exactly the same way
 
 
 
 # better way
 for i in xrange(6):
-	print i**2
+    print i**2
 
 
 
@@ -226,17 +226,15 @@ for i in xrange(6):
 
 # looping over a range of numbers
 for i in [0, 1, 2, 3, 4, 5]:
-	print i**2
-
+    print i**2
 
 # a better way
 for i in range(6):
-	print i**2
-
+    print i**2
 
 # better way
 for i in xrange(6):
-	print i**2
+    print i**2
 
 
 # python3
@@ -302,6 +300,7 @@ for i in xrange(6):
 
 
 # looping over a collection/list
+
 # In C
 for i in xrange(len(text)):
     print text[i]
@@ -353,7 +352,7 @@ for i in xrange(len(text)):
 
 
 
-
+# looping over a collection/list
 
 # In C
 for i in xrange(len(text)):
@@ -411,7 +410,7 @@ for word in text:
 
 
 
-
+# looping over a collection/list
 
 for i in xrange(1000):
     with open('sample.txt', 'w') as f:
@@ -432,174 +431,6 @@ for i in xrange(1000):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # looping backwards
-# In C
-for i in xrange(len(text)-1, -1, -1):
-    print text[i]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # looping backwards
-# In C
-for i in xrange(len(text)-1, -1, -1):
-    print text[i]
-
-
-# In Python
-for word in reversed(text):
-    print word
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-for count in xrange(1000):
-    with open('sample.txt', 'w') as f:
-        for i in xrange(len(text)-1, -1, -1):
-            f.write(text[i])
-# 72005 function calls in 0.214 seconds
-
-
-for count in xrange(1000):
-    with open('sample.txt', 'w') as f:
-        for word in reversed(text):
-            f.write(word)
-# 70004 function calls in 0.206 second
 
 
 
@@ -701,14 +532,13 @@ for i in xrange(len(text)):
 
 
 
-
+# looping over a collection and indicies
 
 # in C
 for i in xrange(len(text)):
     print i, '-->', text[i]
 
 
-# # if manipulating indicies directly, it's probably wrong
 # In Python
 for i, word in enumerate(text):
     print i, '-->', word
@@ -760,7 +590,7 @@ for i, word in enumerate(text):
 
 
 
-
+# looping over a collection and indicies
 
 for count in xrange(2000):
     with open('sample.txt', 'w') as f:
@@ -826,12 +656,12 @@ for count in xrange(2000):
 
 
 # looping over two collections
-names = ['raymond', 'rachel', 'matthew']
-colors = ['red', 'green', 'blue', 'yellow']
+names = ['andrei', 'luis', 'cristi']
+colors = ['rosu', 'verde', 'albastru', 'yellow']
 
 n = min(len(names), len(colors))
 for i in range(n):
-	print names[i], '-->', colors[i]
+    print names[i], '-->', colors[i]
 
 
 
@@ -882,46 +712,18 @@ for i in range(n):
 
 
 # looping over two collections
-names = ['raymond', 'rachel', 'matthew']
-colors = ['red', 'green', 'blue', 'yellow']
+names = ['andrei', 'luis', 'cristi']
+colors = ['rosu', 'verde', 'albastru', 'yellow']
 
 # In C
 n = min(len(names), len(colors))
 for i in range(n):
-	print names[i], '-->', colors[i]
+    print names[i], '-->', colors[i]
 
 
 # in python
 for name, color in zip(names, colors):
-	print name, '-->', color
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print name, '-->', color
 
 
 
@@ -948,23 +750,127 @@ for name, color in zip(names, colors):
 
 
 # looping over two collections
-names = ['raymond', 'rachel', 'matthew']
-colors = ['red', 'green', 'blue', 'yellow']
+names = ['andrei', 'luis', 'cristi']
+colors = ['rosu', 'verde', 'albastru', 'yellow']
 
+# In C
 n = min(len(names), len(colors))
 for i in range(n):
-	print names[i], '-->', colors[i]
+    print names[i], '-->', colors[i]
+
 
 # in python
 for name, color in zip(names, colors):
-	print name, '-->', color
+    print name, '-->', color
 
-
-# in modern processor
-# not fitting in L1 cache
+# better
 for name, color in izip(names, colors):
-	print name, '-->', color
-# izip creates an iterator over the list, generating the values one by one
+    print name, '-->', color
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Functions which consume Iterators
+
+# Looping Backwards
+
+# In C
+for i in xrange(len(text)-1, -1, -1):
+    print text[i]
+
+
+# In Python
+for word in reversed(text):
+    print word
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Functions which consume Iterators
+
+# looping in sorted order
+colors = ['rosu', 'verde', 'albastru', 'yellow']
+
+for color in sorted(colors):
+    print color
+
+
 
 
 
@@ -1014,68 +920,14 @@ for name, color in izip(names, colors):
 
 
 # looping in sorted order
-colors = ['red', 'green', 'blue', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'yellow']
 
 for color in sorted(colors):
-	print color
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# looping in sorted order
-colors = ['red', 'green', 'blue', 'yellow']
-
-for color in sorted(colors):
-	print color
+    print color
 
 # looping over reversed sorted list
 for color in sorted(colors, reverse=True):
-	print color
+    print color
 
 
 
@@ -1130,9 +982,9 @@ for color in sorted(colors, reverse=True):
 # the classic way, by making a custom comparison function
 
 def compare_length(c1, c2):
-	if len(c1) < len(c2): return -1
-	if len(c1) > len(c2): return 1
-	return 0
+    if len(c1) < len(c2): return -1
+    if len(c1) > len(c2): return 1
+    return 0
 
 print sorted(colors, cmp=compare_length)
 
@@ -1187,16 +1039,18 @@ print sorted(colors, cmp=compare_length)
 # Custom sort order
 # the classic way, by making a custom comparison function
 
-def compare_length(c1, c2):
-	if len(c1) < len(c2): return -1
-	if len(c1) > len(c2): return 1
-	return 0
+names = ['tudor', 'gabriel', 'catalina', 'alin']
 
-print sorted(colors, cmp=compare_length)
+def compare_length(c1, c2):
+    if len(c1) < len(c2): return -1
+    if len(c1) > len(c2): return 1
+    return 0
+
+print sorted(names, cmp=compare_length)
 # on 1 000 000, Nlog(N) comparations - 20 000 000 comparations
 
 # a better way
-print sorted(colors, key=len)
+print sorted(names, key=len)
 # called once per key, on 1 000 000, called 1 000 000 times
 
 
@@ -1246,13 +1100,117 @@ print sorted(colors, key=len)
 
 
 
+
+
+
+blocks = []
+while True:
+    block == f.read(32)
+    if block == '':
+        break
+    blocks.append(block)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# a sentinel value
+
+blocks = []
+while True:
+    block == f.read(32)
+    if block == '':
+        break
+    blocks.append(block)
+
+# this code does the same thing
+blocks = []
+for block in iter(partial(f.read, 32), ''):
+    blocks.append(block)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Dictionary skills
 
 # looping over the keys
-d = ['matthew': 'blue', 'rachel': 'green', 'raymond':'red']
+d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
 
 for k in d:
-	print k
+    print k
+
+
+
 
 
 
@@ -1303,23 +1261,17 @@ for k in d:
 
 
 # Dictionary skills
-# fundamental tool expressing relationships, linking, counting and grouping
 
 # looping over the keys
-d = ['matthew': 'blue', 'rachel': 'green', 'raymond':'red']
+d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
 
 for k in d:
-	print k
-# Guido asked what should the for loop do with the dictionary
-# half of the people were saying looping over the keys
-# the other half was about looping over the keys and values
-# Raymond grepped in a lot of existing code to find out the most common use case
-# what was consistent with the list, the dictionary has the keys in a list
+    print k
 
 # another way
 for k in d.keys():
-	if k.startswith('r'):
-		del[k]
+    if k.startswith('r'):
+        del[k]
 
 
 
@@ -1368,6 +1320,34 @@ for k in d.keys():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Dictionary skills
+
+# looping over the keys
+d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
+
+for k in d:
+    print k
+
+# another way
+for k in d.keys():
+    if k.startswith('r'):
+        del[k]
 
 
 for elem in lst:
@@ -1377,6 +1357,56 @@ for elem in lst:
 for elem in lst[:]:
     # mutate list in place
 
+# same with dictionaries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1428,21 +1458,15 @@ for elem in lst[:]:
 # Dictionary skills
 
 # looping over the keys
-d = ['matthew': 'blue', 'rachel': 'green', 'raymond':'red']
+d = ['matthew': 'albastru', 'rachel': 'verde', 'raymond':'rosu']
 
 for k in d:
-	print k
+    print k
 
 # another way
 for k in d.keys():
-	if k.startswith('r'):
-		del[k]
-
-# this should be done when the dictionary is mutated
-# one should never mutate something while iterating over it, in any language
-
-# d.keys() makes a copy of the list and stores it in a list
-# the dictionary can be mutated
+    if k.startswith('r'):
+        del[k]
 
 # even better
 d = {k : d[k] for k in d if not k.startswith('r')}
@@ -1495,54 +1519,6 @@ d = {k : d[k] for k in d if not k.startswith('r')}
 
 
 
-# looping over dictionary keys and values
-
-for k in d:
-	print k, '-->', d[k]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1550,13 +1526,67 @@ for k in d:
 
 
 # looping over dictionary keys and values
+
 for k in d:
-	print k, '-->', d[k]
+    print k, '-->', d[k]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# looping over dictionary keys and values
+for k in d:
+    print k, '-->', d[k]
 # not fast because it has to rehash every key and do a lookup on it
 
 # a better way
 for k, v in d.items():
-	print k, '-->', v
+    print k, '-->', v
 
 
 
@@ -1608,16 +1638,16 @@ for k, v in d.items():
 
 # looping over dictionary keys and values
 for k in d:
-	print k, '-->', d[k]
+    print k, '-->', d[k]
 
 
 # a better way
 for k, v in d.items():
-	print k, '-->', v
+    print k, '-->', v
 # tuple unpacking, no lookups involved
 
 for k, v in d.iteritems():
-	print k, '-->', v
+    print k, '-->', v
 
 
 
@@ -1668,14 +1698,19 @@ for k, v in d.iteritems():
 
 # Counting with dictionaries
 
-names = ['red', 'green', 'red', 'blue', 'green', 'red']
+names = ['Andrei', 'Luis', 'Andrei', 'Irina', 'Tudor', 'Vadim', 'Vlad',
+         'Tudor', 'George', 'Nicu','Cristi', 'Alina', 'Vlad', 'Andrei',
+         'Gabriel', 'Alin', 'Cristi', 'Catalina', 'Alex', 'Gabriel',
+         'Vic', 'Alin', 'Andra', 'Cristina', 'Alina', 'Alex', 'Alex', 'Radu',
 
 d = {}
 for name in names:
-	if name not in d:
-		d[name] = 0
-	d[name] += 1
-{'blue': 1, 'green': 2, 'red': 3}
+    if name not in d:
+        d[name] = 0
+    d[name] += 1
+{'Cristi': 2, 'Vlad': 2, 'Vadim': 1, 'Catalina': 1, 'Alex': 3, 'Alin': 2,
+ 'Tudor': 2, 'Gabriel': 2, 'Cristina': 1, 'Irina': 1, 'Alina': 2, 'Nicu': 1,
+ 'Radu': 1, 'Andrei': 3, 'Andra': 1, 'Luis': 1, 'Vic': 1, 'George': 1}
 
 
 
@@ -1728,22 +1763,21 @@ for name in names:
 
 
 # Counting with dictionaries
-# names = ['red', 'green', 'red', 'blue', 'green', 'red']
+names = ['Andrei', 'Cristi', 'Alina', 'Andrei', 'Andrei', 'Cristi']
 
 d = {}
 for name in names:
-	if name not in d:
-		d[name] = 0
-	d[name] += 1
-{'blue': 1, 'green': 2, 'red': 3}
+    if name not in d:
+        d[name] = 0
+    d[name] += 1
 
 
 # a better way
 d = {}
 for name in names:
-	d[name] = d.get(name, 0) + 1
+    d[name] = d.get(name, 0) + 1
 
-
+{'Cristi': 2, 'Alina': 1, 'Andrei': 3}
 
 
 
@@ -1792,28 +1826,92 @@ for name in names:
 
 
 # Counting with dictionaries
-
-
-
-
-names = ['red', 'green', 'red', 'blue', 'green', 'red']
+names = ['Andrei', 'Cristi', 'Alina', 'Andrei', 'Andrei', 'Cristi']
 
 d = {}
 for name in names:
-	if name not in d:
-		d[name] = 0
-	d[name] += 1
-{'blue': 1, 'green': 2, 'red': 3}
+    if name not in d:
+        d[name] = 0
+    d[name] += 1
 
 # a better way
 d = {}
 for name in names:
-	d[name] = d.get(name, 0) + 1
+    d[name] = d.get(name, 0) + 1
 
 # a better way
 d = defaultdict(int)
 for name in names:
-	d[name] += 1
+    d[name] += 1
+
+{'Cristi': 2, 'Alina': 1, 'Andrei': 3}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# grouping with dictionaries
+names = ['Andrei', 'Luis', 'Andrei', 'Irina', 'Tudor', 'Vadim', 'Vlad',
+         'Tudor', 'George', 'Nicu','Cristi', 'Alina', 'Vlad', 'Andrei',
+         'Gabriel', 'Alin', 'Cristi', 'Catalina', 'Alex', 'Gabriel',
+         'Vic', 'Alin', 'Andra', 'Cristina', 'Alina', 'Alex', 'Alex', 'Radu']
+
+d = {}
+for name in names:
+    key = len(name)
+    if key not in d:
+        d[key] = []
+    d[key].append(name)
+
+{3: ['Vic'], 
+ 4: ['Luis', 'Vlad', 'Nicu', 'Vlad', 'Alin', 'Alex', 'Alin', 'Alex', 'Alex', 'Radu'], 
+ 5: ['Irina', 'Tudor', 'Vadim', 'Tudor', 'Alina', 'Andra', 'Alina'], 
+ 6: ['Andrei', 'Andrei', 'George', 'Cristi', 'Andrei', 'Cristi'], 
+ 7: ['Gabriel', 'Gabriel'], 
+ 8: ['Catalina', 'Cristina']}
 
 
 
@@ -1864,81 +1962,27 @@ for name in names:
 
 
 # grouping with dictionaries
-names = ['raymond', 'rachel', 'matthew', 'roger',
-         'betty', 'melissa', 'judith', 'charlie']
+names = ['Andrei', 'Cristi', 'Vic', 'Gabriel',
+         'Alina', 'Luis', 'Tudor', 'Alex']
 
 d = {}
 for name in names:
-	key = len(name)
-	if key not in d:
-		d[key] = []
-	d[key].append(name)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# grouping with dictionaries
-names = ['raymond', 'rachel', 'matthew', 'roger',
-         'betty', 'melissa', 'judith', 'charlie']
-
-d = {}
-for name in names:
-	key = len(name)
-	if key not in d:
-		d[key] = []
-	d[key].append(name)
+    key = len(name)
+    if key not in d:
+        d[key] = []
+    d[key].append(name)
 
 # a better way
 d = {}
 for name in names:
-	key = len(name)
-	d.setdefault(key, []).append(name)	
+    key = len(name)
+    d.setdefault(key, []).append(name)  
+
+{3: ['Vic'], 
+ 4: ['Luis', 'Alex'], 
+ 5: ['Alina', 'Tudor'], 
+ 6: ['Andrei', 'Cristi'], 
+ 7: ['Gabriel']}
 
 
 
@@ -1989,27 +2033,27 @@ for name in names:
 
 
 # grouping with dictionaries
-names = ['raymond', 'rachel', 'matthew', 'roger',
-         'betty', 'melissa', 'judith', 'charlie']
+names = ['Andrei', 'Cristi', 'Vic', 'Gabriel',
+         'Alina', 'Luis', 'Tudor', 'Alex']
 
 d = {}
 for name in names:
-	key = len(name)
-	if key not in d:
-		d[key] = []
-	d[key].append(name)
+    key = len(name)
+    if key not in d:
+        d[key] = []
+    d[key].append(name)
 
 # a better way
 d = {}
 for name in names:
-	key = len(name)
-	d.setdefault(key, []).append(name)
+    key = len(name)
+    d.setdefault(key, []).append(name)
 
 # a better way
 d = defaultdict(list)
 for name in names:
-	key = len(name)
-	d[key].append(name)
+    key = len(name)
+    d[key].append(name)
 
 
 
@@ -2060,11 +2104,11 @@ for name in names:
 
 
 # Construct a dictionary from pairs
-names = ['raymond', 'rachel', 'matthew']
-colors = ['red', 'green', 'blue']
+names = ['Alina', 'Catalina', 'Cristi']
+colors = ['rosu', 'verde', 'albastru']
 
 d = dict(izip(names, colors))
-{'matthew': 'blue', 'rachel': 'green', 'raymond': 'red'}
+{'Cristi': 'albastru', 'Alina': 'rosu', 'Catalina': 'verde'}
 
 
 
@@ -2116,13 +2160,13 @@ d = dict(izip(names, colors))
 
 
 # Linking dictionaries
-defaults = {'color':'red', 'user':'guest'}
+defaults = {'color':'rosu', 'user':'guest'}
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', '--user')
 parser.add_argument('=c', '--color')
 namespace = parser.parse_args([])
 command_line_args = {k:v for k, v in 
-					 vars(namespace).items() if v}
+                     vars(namespace).items() if v}
 
 
 d = defaults.copy()
@@ -2182,13 +2226,13 @@ d.update(command_line_args)
 
 
 # Linking dictionaries
-defaults = {'color':'red', 'user':'guest'}
+defaults = {'color':'rosu', 'user':'guest'}
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', '--user')
 parser.add_argument('=c', '--color')
 namespace = parser.parse_args([])
 command_line_args = {k:v for k, v in 
-					 vars(namespace).items() if v}
+                     vars(namespace).items() if v}
 
 
 # the default way to do it
@@ -2201,136 +2245,3 @@ d.update(command_line_args)
 d = ChainMap(command_line_args, os.environ, defaults)
 # python3
 # it links them all together
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Distinguishing multiple exit points in loops
-
-
-def find(seq, target):
-	found = False
-	for i, value in enumerate(seq):
-		if value == target:
-			found = True
-			break
-	if not found:
-		return -1
-	return i
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Distinguishing multiple exit points in loops
-
-def find(seq, target):
-	found = False
-	for i, value in enumerate(seq):
-		if value == target:
-			found = True
-			break
-	if not found:
-		return -1
-	return i
-
-# a better way, the else clause
-def find(seq, target):
-	for i, value in enumerate(seq):
-		if value == target:
-			break
-	else:
-		return -1
-	return i
-
