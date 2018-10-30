@@ -657,7 +657,7 @@ for count in xrange(2000):
 
 # looping over two collections
 names = ['andrei', 'luis', 'cristi']
-colors = ['rosu', 'verde', 'albastru', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'galben']
 
 n = min(len(names), len(colors))
 for i in range(n):
@@ -713,7 +713,7 @@ for i in range(n):
 
 # looping over two collections
 names = ['andrei', 'luis', 'cristi']
-colors = ['rosu', 'verde', 'albastru', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'galben']
 
 # In C
 n = min(len(names), len(colors))
@@ -751,7 +751,7 @@ for name, color in zip(names, colors):
 
 # looping over two collections
 names = ['andrei', 'luis', 'cristi']
-colors = ['rosu', 'verde', 'albastru', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'galben']
 
 # In C
 n = min(len(names), len(colors))
@@ -865,7 +865,7 @@ for word in reversed(text):
 # Functions which consume Iterators
 
 # looping in sorted order
-colors = ['rosu', 'verde', 'albastru', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'galben']
 
 for color in sorted(colors):
     print color
@@ -920,7 +920,7 @@ for color in sorted(colors):
 
 
 # looping in sorted order
-colors = ['rosu', 'verde', 'albastru', 'yellow']
+colors = ['rosu', 'verde', 'albastru', 'galben']
 
 for color in sorted(colors):
     print color
@@ -1201,10 +1201,10 @@ for block in iter(partial(f.read, 32), ''):
 
 
 
-# Dictionary skills
+# Dictionaries
 
 # looping over the keys
-d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
+d = {'Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu'}
 
 for k in d:
     print k
@@ -1260,7 +1260,7 @@ for k in d:
 
 
 
-# Dictionary skills
+# Dictionaries
 
 # looping over the keys
 d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
@@ -1336,7 +1336,7 @@ for k in d.keys():
 
 
 
-# Dictionary skills
+# Dictionaries
 
 # looping over the keys
 d = ['Alina': 'albastru', 'Cristi': 'verde', 'Gabriel':'rosu']
@@ -1455,10 +1455,10 @@ for elem in lst[:]:
 
 
 
-# Dictionary skills
+# Dictionaries
 
 # looping over the keys
-d = ['matthew': 'albastru', 'rachel': 'verde', 'raymond':'rosu']
+d = ['Tudro': 'albastru', 'Cristi': 'verde', 'Alin':'rosu']
 
 for k in d:
     print k
