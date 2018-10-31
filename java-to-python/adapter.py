@@ -1,5 +1,6 @@
 import jnettool.tools.elements.NetworkElement
-import jnettool.tools.routing
+import jnettool.tools.Routing
+import jnettool.tools.RouteInspector
 
 class NetworkElementError(Exception):
     pass

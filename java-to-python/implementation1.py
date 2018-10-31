@@ -5,7 +5,7 @@ import jnettool.tools.RouteInspector
 ne = jnettool.tools.elements.NetworkElement('127.0.0.1')
 
 try:
-    routing_table - ne.getRoutingTable()
+    routing_table = ne.getRoutingTable()
 except jnettool.tools.elements.MissingVar:
     logging.exception('no routing table found')
     ne.cleanup('rollback')
@@ -19,3 +19,11 @@ else:
 finally:
     ne.cleanup('commit')
     ne.disconnect()
+
+
+###############################
+from adapter import NetworkElement
+
+with NetworkElement('127.0.0.1') as ne:
+    for route in ne.routing_table:
+        print '{} -> {}'.format(route.name, route.ipaddr)

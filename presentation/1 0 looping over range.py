@@ -1,29 +1,31 @@
 # looping over a range of numbers
 
 for i in [0, 1, 2, 3, 4, 5]:
-	print i**2
+    print i**2
 
 # python's for is not like other language "for", probably should be named foreach
 # it loops over collections, using the iterator protocol
 # not like the for in C
 
-# Generator functions are functions that behafe like an iterator. 
-# For example, they can be fed into for loops
-# Iterators are objects that contain a  countable number of values
-# an object that implements the iterator protocol, __iter__ and __next__
+# First, we need to think about what Python's for loop does. Since you can attempt to iterate over any object,
+# Python doesn't necessarily know how to iterate over whatever you've given it. So there is a list (heh) of things
+# it tries to do to work out how to present the values one-by-one. And the first thing it does is checks for
+# an __iter__ method on the object and -- if it exists -- calls it.
 
+# The result of this call will then be an iterable object; that is, one with a next method.
+# Now we're good to go: just call next repeatedly until StopIteration is raised.
 
 # a better way
 for i in range(6):
-	print i**2
+    print i**2
 # they do the same thing in exactly the same way
 # range produces the same list and the for loops over the list
-# range 1000000 equals quite a big list, estimated 32mb of memory 
+# range 1000000 equals quite a big list, estimated 32mb of memory
 # for list only
 
 # better way, XRANGE
 for i in xrange(6):
-	print i**2
+    print i**2
 # produces an iterator over the range, giving the values one at a time
 # xrange is better and also ugly
 
