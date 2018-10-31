@@ -23,17 +23,24 @@ for k in d.keys():
 # https://stackoverflow.com/questions/10812272/modifying-a-list-while-iterating-over-it-why-not
 # The reason to why you should never modify a list while iterating over it is for example, 
 # you're iterating over a list of 20 digits, and if you hit an even number you pop it off
-# the list and carry on till you have a list of just odd numbers.
+# the
 
-# Now, say this is your sample data [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 
-# and you start iterating over it. First iteration, and the number is 1 so you continue, 
-# the following number is 2 so you pop it off, and rinse and repeat. You now feel the application
- # worked correctly as the resultant list is [1, 3, 5, 7, 9, 11, 13, 15, 17, 19].
+for elt in my_list:
+    my_list.pop()
+or similar idioms.
 
-# Now let's say your sample data is [1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 15, 15, 17, 18, 20]
-# and you run the same piece of code as before and mutate the original list while iterating
-# through it. Your resultant list is [1, 4, 5, 7, 10, 11, 13, 15, 15, 17, 20] 
-# which is clearly incorrect as there are still even numbers contained in the list.
+# First, we need to think about what Python's for loop does. Since you can attempt to iterate over any object,
+# Python doesn't necessarily know how to iterate over whatever you've given it. So there is a list (heh) of things
+# it tries to do to work out how to present the values one-by-one. And the first thing it does is checks for 
+# an __iter__ method on the object and -- if it exists -- calls it.
+
+# The result of this call will then be an iterable object; that is, one with a next method.
+# Now we're good to go: just call next repeatedly until StopIteration is raised.
+
+# Why is this important? Well, because the __iter__ method has actually to look at the data structure to find the values, 
+# and remember some internal state so that it knows where to look next. But if you change the data structure 
+# then __iter__ has no way of knowing that you've been fiddling, so it will blithely keep on trying to grab new data. 
+# What this means in practise is that you will probably skip elements of the list.
 
 # If you are planning on mutating the list while iterating through it like so
 
