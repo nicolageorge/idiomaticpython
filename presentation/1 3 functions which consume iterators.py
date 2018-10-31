@@ -1,11 +1,12 @@
-# when something becomes iterable:
-# 	can use for loops,
-#   feed it to set
-#   feed it to sorted, min, max, heap, queue, sum
-#   many tools consume iterators
-# 	it will work with the rest of the functions in the python toolkit
-# only issue, the function argument has to be a function of no arguments
-# to turn function of many arguments to a function of fewer arguments use partial
+# # looping backwards
+# In C
+for i in xrange(len(text)-1, -1, -1):
+    print text[i]
+
+
+# In Python
+for word in reversed(text):
+    print word
 
 
 # looping in sorted order
@@ -37,18 +38,6 @@ print sorted(colors, key=len)
 # in python3 - no more comparison functions
 
 
-
-# # looping backwards
-# In C
-for i in xrange(len(text)-1, -1, -1):
-    print text[i]
-
-
-# In Python
-for word in reversed(text):
-    print word
-
-
 for count in xrange(1000):
     with open('sample.txt', 'w') as f:
         for i in xrange(len(text)-1, -1, -1):
@@ -61,3 +50,42 @@ for count in xrange(1000):
         for word in reversed(text):
             f.write(word)
 # 70004 function calls in 0.206 second
+
+
+
+# call function untill a sentinel value
+# traditional way to do a repeated call over a function that has a sentinel value
+#
+# read block of strings, eventually run out of data, f.read returns a sentinel value, so when 
+# sentinel value is encountered we can break out of the loop
+# build blocks of strings, output is big list of strings
+# should connect together strings with join
+# should not connect together strings with +
+blocks = []
+while True:
+    block == f.read(32)
+    if block == '':
+        break
+    blocks.append(block)
+
+# this code does the same thing
+
+# new
+# the iter function can take 2 arguments
+# 1: the function that you call over and over again
+# 2: sentinel value
+# the ITER function
+# will call read over and over again, looping over a block of 32 bits
+# when sentinel value is encountered, break out of the loop
+#
+# when something becomes iterable:
+#   can use for loops,
+#   feed it to set
+#   feed it to sorted, min, max, heap, queue, sum
+#   many tools consume iterators
+#   it will work with the rest of the functions in the python toolkit
+# only issue, the function argument has to be a function of no arguments
+# to turn function of many arguments to a function of fewer arguments use partial
+blocks = []
+for block in iter(partial(f.read, 32), ''):
+    blocks.append(block)
