@@ -1,13 +1,16 @@
 # # looping backwards
 # In C
-for i in xrange(len(text)-1, -1, -1):
+# this translates directly to python
+# grotesque and horific
+for i in xrange(len(text) - 1, -1, -1):
     print text[i]
-
 
 # In Python
 for word in reversed(text):
     print word
 
+
+# looping over a collection and indicies
 
 # looping in sorted order
 colors = ['red', 'green', 'blue', 'yellow']
@@ -29,11 +32,9 @@ def compare_length(c1, c2):
 	return 0
 
 print sorted(colors, cmp=compare_length)
-# on 1 000 000, Nlog(N) comparations - 20 000 000 comparations
 
 # a better way
 print sorted(colors, key=len)
-# called once per key, on 1 000 000, called 1 000 000 times
 # from sql, everything is ordered but not by comparison function
 # in python3 - no more comparison functions
 
@@ -53,10 +54,12 @@ for count in xrange(1000):
 
 
 
-# call function untill a sentinel value
+# call function untill a sentinel value is reached
+# is a special value in the context of an algorithm which uses its presence as a condition of termination, 
+# typically in a loop or recursive algorithm.
 # traditional way to do a repeated call over a function that has a sentinel value
 #
-# read block of strings, eventually run out of data, f.read returns a sentinel value, so when 
+# read block of strings, eventually run out of data, f.read returns a sentinel value, so when
 # sentinel value is encountered we can break out of the loop
 # build blocks of strings, output is big list of strings
 # should connect together strings with join
@@ -79,9 +82,10 @@ while True:
 # when sentinel value is encountered, break out of the loop
 #
 # when something becomes iterable:
-#   can use for loops,
+#   can use for loops
 #   feed it to set
-#   feed it to sorted, min, max, heap, queue, sum
+#   feed it to sorted, min, max, heap, sum, count, any, all
+#   itertools. ex permutations, combinations
 #   many tools consume iterators
 #   it will work with the rest of the functions in the python toolkit
 # only issue, the function argument has to be a function of no arguments

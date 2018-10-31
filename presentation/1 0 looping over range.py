@@ -7,10 +7,10 @@ for i in [0, 1, 2, 3, 4, 5]:
 # it loops over collections, using the iterator protocol
 # not like the for in C
 
-# First, we need to think about what Python's for loop does. Since you can attempt to iterate over any object,
-# Python doesn't necessarily know how to iterate over whatever you've given it. So there is a list (heh) of things
-# it tries to do to work out how to present the values one-by-one. And the first thing it does is checks for
-# an __iter__ method on the object and -- if it exists -- calls it.
+# Since you can attempt to iterate over any object,
+# Python doesn't necessarily know how to iterate over whatever you've given it.
+# Given a list of things it tries to do to work out how to present the values one-by-one.
+# The first thing it does is checks for an __iter__ method on the object and -- if it exists -- calls it.
 
 # The result of this call will then be an iterable object; that is, one with a next method.
 # Now we're good to go: just call next repeatedly until StopIteration is raised.
